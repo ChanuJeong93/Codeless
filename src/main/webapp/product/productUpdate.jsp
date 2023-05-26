@@ -169,7 +169,6 @@ function inputColorOption(modelList, colorList) {
 	  else if (methodSelect.value === "2") {
 	    // 택배를 선택한 경우 
 	    addressFields.style.display = "none";
-	    deliveryMessage.style.display = "block";
 	    payDelFields.style.display = "block";
 // 	    address1, address2 값을 공백으로 설정
 	    address1Input.value = " ";
@@ -203,7 +202,7 @@ function inputColorOption(modelList, colorList) {
  <h1 style="font-family: 'TheJamsil5Bold';">상 품 수 정</h1>
 <hr style="border: 0;height: 3px; background-color: black;">
 	
-	<form action="./ProductUpdateProAction.pr" method="post" enctype="multipart/form-data">
+	<form action="./ProductUpdateProAction.pr" method="post" enctype="multipart/form-data" onsubmit="return changeNumber()">
 		<input type="hidden" name="user_id" value="${product.user_id}"> <!-- user_id를 hidden으로 전송 -->
   <!-- user_id를 hidden으로 전송 -->
   

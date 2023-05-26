@@ -101,19 +101,19 @@
 		<input type="hidden" name="price" value="${dto.price}">
 		<input type="hidden" name="fee" value="${dto.fee}">
 		<div style="display: flex; align-items: center;" >
-			<img src="./upload/product/${dto.product_image.split(',')[0]}" alt="이미지 없음"  width="150px" style="display: block; margin-right: 10px; max-height: 200px; max-width: 150px;">
+			<img src="./upload/product/${dto.product_image.split(',')[0]}" alt="이미지 없음"  width="150px" style="display: block; margin-right: 10px; max-height: 150px; max-width: 150px;">
 			<table >
 				<tr>
-					<td style="text-align: left;"><span style="color: black; margin-right: 20px; margin-left: 20px;"></span></td>
-					<td style="text-align: right;"><span style="color: black; margin-left: 20px; font-size: 20px;">${dto.title}</span></td>
+					<td style="text-align: left;"><span style="color: black; margin-right: 20px; margin-left: 35px;"></span></td>
+					<td style="text-align: right;"><span style="color: black; margin-left: 25px; font-size: 20px;">${dto.title}</span></td>
 				</tr>
 				<tr>
-					<td style="text-align: left;"><span style="color: black; margin-right: 20px; margin-left: 20px;">가격</span></td>
-					<td style="text-align: right;"><span style="color: black; margin-left: 20px;"><fmt:formatNumber value="${dto.price}" pattern="#,###"/>원</span></td>
+					<td style="text-align: left;"><span style="color: black; margin-right: 20px; margin-left: 35px;">가격</span></td>
+					<td style="text-align: right;"><span style="color: black; margin-left: 20px; padding-left: 240px;"><fmt:formatNumber value="${dto.price}" pattern="#,###"/>원</span></td>
 				</tr>
 				<tr>
-					<td style="text-align: left;"><span style="color: black; margin-right: 20px; margin-left: 20px;">배송비</span></td>
-					<td style="text-align: right;"><span style="color: black; margin-left: 20px; padding-left: 255px;"><fmt:formatNumber value="${dto.fee}" pattern="#,###"/>원</span></td>
+					<td style="text-align: left;"><span style="color: black; margin-right: 20px; margin-left: 35px;">배송비</span></td>
+					<td style="text-align: right;"><span style="color: black; margin-left: 20px; "><fmt:formatNumber value="${dto.fee}" pattern="#,###"/>원</span></td>
 				</tr>
 			</table>
 		</div>
@@ -127,19 +127,19 @@
 		<input type="hidden" id = "id" name="id" value="${dto.id }">
 			<table>
 				<tr>
-					<td style="text-align: left;"><span style="color: black; margin-right: 140px;">이름</span></td>
+					<td style="text-align: left;"><span style="color: black; margin-right: 160px;">이름</span></td>
 					<td style="text-align: right;"><span style="color: black;">${dto.receiver_name }</span></td>
 				</tr>
 				<tr>
-					<td style="text-align: left;"><span style="color: black; margin-right: 140px;">전화번호</span></td>
+					<td style="text-align: left;"><span style="color: black; margin-right: 160px;">전화번호</span></td>
 					<td style="text-align: right;"><span style="color: black;">${dto.receiver_phone }</span></td>
 				</tr>
 				<tr>
-					<td style="text-align: left;"><span style="color: black; margin-right: 140px;">우편번호</span></td>
+					<td style="text-align: left;"><span style="color: black; margin-right: 160px;">우편번호</span></td>
 					<td style="text-align: right;"><span style="color: black; padding-left: 320px;">${dto.receiver_post }</span></td>
 				</tr>
 				<tr>
-					<td style="text-align: left;"><span style="color: black; margin-right: 140px;">주소</span></td>
+					<td style="text-align: left;"><span style="color: black; margin-right: 160px;">주소</span></td>
 					<td style="text-align: right;"><span style="color: black;"> ${dto.receiver_addr1 } , ${dto.receiver_addr2 } </span></td>
 				</tr>
 			</table>
@@ -147,7 +147,7 @@
 				<form name="trackingForm" action="./TrackingNumberAction.or" method="post" accept-charset="utf-8">
 				  <input type="hidden" id="order_id" name="order_id" value="${dto.order_id}">
 				  <input type="hidden" id="product_id" name="product_id" value="${dto.product_id}">
-				  <span style="padding-right: 150px; color: black;">운송장정보</span>
+				  <span style="padding-right: 160px; color: black;">운송장정보</span>
 				  <select id="deliveryCompany" name="deliveryCompany" style="width: 120px; height: 35px;">
 				    <option value="CJ대한통운">CJ대한통운</option>
 				    <option value="롯데택배">롯데택배</option>
@@ -175,20 +175,20 @@
 				<div class="receiverTraking">
 				<table>
 				<tr>
-					<td style="text-align: left;"><span style="color: black; margin-right: 300px;">운송장정보</span></td>
+					<td style="text-align: left;"><span style="color: black; margin-right: 280px;">운송장정보</span></td>
 					<c:choose>
 					<c:when test="${dto.order_status eq '주문 수락'}">
-					<td style="text-align: cemter; padding-left: 50px; padding-right:15px;"><span style="color: black;">
+					<td style="text-align: cemter; padding-left: 70px; padding-right:15px;"><span style="color: black;">
 						</span></td>
 					</c:when>
 					<c:otherwise>
-					<td style="text-align: cemter; padding-right:15px;"><span style="color: black;">
+					<td style="text-align: cemter; padding-right:10px;"><span style="color: black;">
 						[ ${dto.delivery_company } ]
 						</span></td>
 					</c:otherwise>
 					</c:choose>
 					
-					<td style="text-align: right; "><span style="color: black;">
+					<td style="text-align: right; padding-right:15px;"><span style="color: black;">
 					<c:choose>
 					<c:when test="${dto.order_status eq '주문 수락'}">
 						(운송장번호 미등록)
@@ -222,8 +222,8 @@
 		<table>
 			<tr>
 				<td style="text-align: left;"><span style="color: black; margin-right: 135px; ">결제수단</span></td>
-				<td style="text-align: right;"><span style="color: black; margin-right: 18px;">${dto.payment }</span></td>
-				<td style="text-align: center;"><span style="color: black; margin-right: 18px;">|</span></td>
+				<td style="text-align: right;"><span style="color: black; margin-right: 20px;">${dto.payment }</span></td>
+				<td style="text-align: center;"><span style="color: black; margin-right: 20px;">|</span></td>
 				<td style="text-align: left;"><span style="color: black; margin-right: 135px;">결제금액</span></td>
 				<td style="text-align: right;"><span style="color: black;">${dto.price + dto.fee }원</span></td>
 			</tr>

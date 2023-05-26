@@ -154,7 +154,6 @@ $('document').ready(function() {
 	  else if (methodSelect.value === "2") {
 	    // 택배를 선택한 경우 
 	    addressFields.style.display = "none";
-	    deliveryMessage.style.display = "block";
 	    payDelFields.style.display = "block";
 // 	    address1, address2 값을 공백으로 설정
 	    address1Input.value = " ";
