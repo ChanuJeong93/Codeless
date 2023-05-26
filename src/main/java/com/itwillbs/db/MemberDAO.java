@@ -563,22 +563,23 @@ public class MemberDAO {
 		}//아이디 중복
 		
 		
-		public String emailCheck(String email) {
-			String check = "";
+		public String emailCheck(String id) {
+			String result = "";
 			try {
 				con = getCon();
-				sql = "select email from user where email=?";
+				sql = "select email from user where id=?";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, email);
+				pstmt.setString(1, id);
 				
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()) {
-					check = "1";//중복됨
+					result = rs.getString("email");
 				}else {
-					check = "0";
+					result = "no email";
 				}
 				
+				System.out.println(result);
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -586,7 +587,30 @@ public class MemberDAO {
 			}finally {
 				closeDB();
 			}
-			return check;
-		}//아이디 중복
+			return result;
+		}//비밀번호찾기 (이메일저장)
+		
+		public void pwUpdate(String email,String randomPw) {
+			
+			try {
+				con = getCon();
+				sql="update user set password=? where email=?";
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setString(1, randomPw);
+				pstmt.setString(2, email);
+				pstmt.executeUpdate();
+				
+				System.out.println("업데이트 성공!");
+						
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				closeDB();
+			}
+		
+		}//비번찾기
+
 
 }//MemberDAO
