@@ -15,7 +15,6 @@
      
       <input type="text" class="form-control"  placeholder="아이디를 입력해주세요." name="id" style="margin-bottom: 10px;">
 	 
-      <input type="text" class="form-control" placeholder="등록하신 연락처 정보를 '-'를 포함하여 입력해주세요." name="phone_number">
 
       <button type="submit" class="btn btn-primary btn-block" style="margin-top: 30px;" >확인</button>
       <hr>
